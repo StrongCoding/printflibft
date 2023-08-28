@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 10:00:11 by dnebatz           #+#    #+#             */
-/*   Updated: 2023/07/17 18:06:24 by dnebatz          ###   ########.fr       */
+/*   Updated: 2023/08/28 15:01:49 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,11 @@ int	ft_putnbr_p(unsigned long nbr, char *base)
 
 	ft_ini_array(result);
 	i = 0;
-	if (nbr < 0)
-	{
-		write(1, "-", 1);
-		result[i] = (base[(nbr % (ft_length(base))) * -1]);
-	}
-	else
-		result[i] = base[nbr % ft_length(base)];
+	result[i] = base[nbr % ft_length(base)];
 	while ((nbr / ft_length(base)))
 	{
 		i++;
 		nbr = nbr / ft_length(base);
-		if (nbr < 0)
-			nbr = nbr * -1;
 		result[i] = base[nbr % ft_length(base)];
 	}
 	ft_rev_int_tab(result, ft_length(result));
